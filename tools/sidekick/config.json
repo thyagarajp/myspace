@@ -1,0 +1,34 @@
+{
+  "project": "Geeks Edge Deliver Services",
+  "plugins": [
+    {
+      "id": "google-assist",
+      "title": "google Assist",
+      "environments": ["edit", "dev", "preview", "live", "prod"],
+      "url": "https:google.com",
+      "passConfig": true,
+      "passReferrer": true,
+      "excludePaths": ["**/fr/**"],
+      "includePaths": ["**.docx**", "**/fr/blocks/**"],
+      "isPalette": true,
+      "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)"
+    },
+    { "id": "tools", "title": "Tools", "isContainer": true },
+    {
+      "containerId": "tools",
+      "id": "localize",
+      "title": "Localize",
+      "environments": ["edit", "dev", "preview", "live", "prod"],
+      "url": "microsoft.com",
+      "passReferrer": true
+    },
+    {
+      "containerId": "tools",
+      "id": "youtube",
+      "title": "Youtube",
+      "environments": ["edit", "dev", "preview", "live", "prod"],
+      "url": "youtube.com",
+      "passReferrer": true
+    }
+  ]
+}
