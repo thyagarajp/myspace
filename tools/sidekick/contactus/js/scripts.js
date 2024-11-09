@@ -1,24 +1,64 @@
 
-// Example 1: Extract JSON URL from data attribute
-const jsonUrl1 = document.querySelector('.json-link').getAttribute('data-url');
-console.log("JSON URL from data attribute:", jsonUrl1);
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-// Example 2: Extract JSON URL from text content
-const jsonUrl2 = document.querySelector('#json-url').textContent.trim();
-console.log("JSON URL from text content:", jsonUrl2);
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-// Example 3: Extract JSON URL from script content
-const scriptContent = document.querySelector('#json-script').textContent;
-const urlMatch = scriptContent.match(/https?:\/\/[^\s"']+/);
-if (urlMatch) {
-    const jsonUrl3 = urlMatch[0];
-    console.log("JSON URL from script content:", jsonUrl3);
-}
+    let valid = true;
 
-// Example 4: Extract JSON URL from anchor href
-const jsonUrl4 = document.querySelector('.json-anchor').href;
-console.log("JSON URL from anchor href:", jsonUrl4);
+    // Validate name
+    if (name === '') {
+        document.getElementById('name-error').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('name-error').style.display = 'none';
+    }
 
-// Example 5: Extract JSON URL from img src
-const jsonUrl5 = document.querySelector('.json-source').src;
-console.log("JSON URL from img src:", jsonUrl5); 
+    // Validate email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById('email-error').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('email-error').style.display = 'none';
+    }
+
+    // Validate phone (optional field)
+    const phonePattern = /^[0-9]{10}$/;
+    if (phone !== '' && !phonePattern.test(phone)) {
+        document.getElementById('phone-error').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('phone-error').style.display = 'none';
+    }
+
+    // Validate subject
+    if (subject === '') {
+        document.getElementById('subject-error').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('subject-error').style.display = 'none';
+    }
+
+    // Validate message
+    if (message === '') {
+        document.getElementById('message-error').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('message-error').style.display = 'none';
+    }
+
+    // If the form is valid, display success message
+    if (valid) {
+        document.getElementById('success-message').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('contact-form').reset();
+        }, 3000); // Hide message after 3 seconds
+    }
+}); 
