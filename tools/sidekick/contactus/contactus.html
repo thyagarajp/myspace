@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dummy HTML for JSON URL Extraction</title>
+  </head>
+  <body>
+    <!-- JSON URL in data attribute -->
+    <div class="json-link" data-url="https://example.com/data1.json">
+      Link with JSON URL in data attribute
+    </div>
+
+    <!-- JSON URL in text content -->
+    <div id="json-url">https://example.com/data2.json</div>
+
+    <!-- JSON URL in script tag -->
+    <script id="json-script">
+      const dataUrl = "https://example.com/data3.json";
+    </script>
+
+    <!-- JSON URL in anchor href -->
+    <a href="https://example.com/data4.json" class="json-anchor"
+      >JSON Data Link</a
+    >
+
+    <!-- JSON URL in img src -->
+    <img
+      src="https://example.com/data5.json"
+      class="json-source"
+      alt="JSON Data Image"
+    />
+  </body>
+</html>
