@@ -18,3 +18,11 @@ indices:
         select: head>meta[name="publication-date"]
         value: |
         dateValue(attribute(el, 'content'),'MM-DD-YYYY')
+      image:
+        select: head>meta[property="og:image"]
+        value: |
+        match(attribute(el, 'content'),'https:\/\/[^/]+(\/.*)')
+      description:
+        select: head>meta[name="description"]
+        value: |
+        attribute(el, 'content')
