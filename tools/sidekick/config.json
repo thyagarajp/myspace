@@ -58,6 +58,13 @@
       "environments": ["edit", "dev", "preview", "live", "prod"],
       "url": "youtube.com",
       "passReferrer": true
+    },
+    {
+      "id": "sidekick-library",
+      "title": "Library",
+      "environments": ["edit", "dev"],
+      "url": "tools/sidekick/library.html",
+      "includePaths": ["**.docx**"]
     }
   ]
 }
